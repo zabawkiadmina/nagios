@@ -13,3 +13,4 @@
         name: nginx
         state: started
         enabled: True
+#ansible-playbook -i hosts --limit node1 -u tematy.it main.yml -b -K --ask-pass
