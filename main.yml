@@ -3,6 +3,9 @@
   become: yes
   tasks: 
 - name: install packages
+  apt:
+    name: "nginx"
+    state: "present"
   #apt:
     #name:
      # - apache2 state=latest
@@ -11,9 +14,7 @@
      # - monitoring-plugins-contrib state=latest
      # - nagios-nrpe-plugin state=latest
     
-    apt:
-       name: "nginx"
-       state: "present"
+
 
     #cache_valid_time: "{{ apt_cache_valid_time }}"
     #update_cache: yes
