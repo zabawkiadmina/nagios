@@ -14,11 +14,9 @@
 - name: Install MySQL server
   apt: name=mysql-server state=latest
 
-- name: Install Apache module for MySQL authentication
-  apt: name=libapache2-mod-auth-mysql state=latest
-    cache_valid_time: "{{ apt_cache_valid_time }}"
-    update_cache: yes
-    state: present
+    #cache_valid_time: "{{ apt_cache_valid_time }}"
+    #update_cache: yes
+    #state: present
 
 - name: enable apache modules
   community.general.apache2_module:
