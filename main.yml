@@ -6,7 +6,7 @@
   tasks:
     - name: Install packages
       apt:
-        name: "nginx"
+        name: "apache2 nagios4 python3-passlib monitoring-plugins-contrib nagios-nrpe-plugin"
         state: "present"
     - name: Start nginx server
       service:
