@@ -24,7 +24,7 @@
         name: cgi
         state: present
         name: headers
-- name: Start apache2 server
+    - name: Start apache2 server
       service:
         name: apache2
         state: restarted
