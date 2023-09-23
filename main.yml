@@ -17,13 +17,18 @@
     - name: enable apache modules
       community.general.apache2_module:
         state: present
-        name: "{{ item }}"
-  with_items:
-    - md
-    - ssl
-    - cgi
-    - headers
-  notify: restart apache2
+        name: md
+        state: present
+        name: ssl
+        state: present
+        name: cgi
+        state: present
+        name: headers
+- name: Start apache2 server
+      service:
+        name: apache2
+        state: restarted
+
 
 
 
