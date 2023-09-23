@@ -1,11 +1,15 @@
+---
+- hosts: all
+  become: yes
+  tasks: 
 - name: install packages
   apt:
     name:
-      - apache2
-      - nagios4
-      - python3-passlib
-      - monitoring-plugins-contrib
-      - nagios-nrpe-plugin
+      - apache2 state=latest
+      - nagios4 state=latest
+      - python3-passlib state=latest
+      - monitoring-plugins-contrib state=latest
+      - nagios-nrpe-plugin state=latest
     cache_valid_time: "{{ apt_cache_valid_time }}"
     update_cache: yes
     state: present
