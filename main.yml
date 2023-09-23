@@ -11,8 +11,9 @@
      # - monitoring-plugins-contrib state=latest
      # - nagios-nrpe-plugin state=latest
     
-- name: Install MySQL server
-  apt: name=mysql-server state=latest
+    apt:
+       name: "nginx"
+       state: "present"
 
     #cache_valid_time: "{{ apt_cache_valid_time }}"
     #update_cache: yes
