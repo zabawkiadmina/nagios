@@ -1,7 +1,7 @@
 ---
 - hosts: all 
   become: True
-  remote_user: ansible
+  remote_user: tematy.it
   vars:
     ansible_become_pass: Warszawa
   tasks:
