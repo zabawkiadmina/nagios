@@ -14,10 +14,10 @@
         state: started
         enabled: True
 
-- name: enable apache modules
-  community.general.apache2_module:
-    state: present
-    name: "{{ item }}"
+    - name: enable apache modules
+      community.general.apache2_module:
+        state: present
+        name: "{{ item }}"
   with_items:
     - md
     - ssl
