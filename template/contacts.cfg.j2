@@ -1,0 +1,29 @@
+# {{ ansible_managed }}
+
+{% set contactGroups = nagios4_users | groupby('nagios_group') %}
+
+{% for contact in nagios4_users %}
+define contact {
+    contact_name                    {{ contact.name }}
+    alias                           {{ contact.full_name }}
+    email                           {{ contact.email }}
+
+    service_notification_commands   notify-service-by-email
+    host_notification_commands      notify-host-by-email
+
+    host_notifications_enabled      1
+    service_notifications_enabled   1
+    service_notification_period     24x7
+    host_notification_period        24x7
+    service_notification_options    w,u,c,r
+    host_notification_options       d,u,r
+}
+{% endfor %}
+
+{% set groups = nagios4_users | map(attribute='nagios_group') | flatten | unique %}
+{% for group in groups %}
+define contactgroup {
+    contactgroup_name {{ group }}
+    members           {{ nagios4_users | selectattr('nagios_group', 'contains', group) | map(attribute='name') | join(', ') }}
+}
+{% endfor %}

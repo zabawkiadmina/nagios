@@ -1,0 +1,82 @@
+- name: install packages
+  apt:
+    name:
+      - apache2
+      - nagios4
+      - python3-passlib
+      - monitoring-plugins-contrib
+      - nagios-nrpe-plugin
+    cache_valid_time: "{{ apt_cache_valid_time }}"
+    update_cache: yes
+    state: present
+
+- name: enable apache modules
+  community.general.apache2_module:
+    state: present
+    name: "{{ item }}"
+  with_items:
+    - md
+    - ssl
+    - cgi
+    - headers
+  notify: restart apache2
+
+# I want nagios4 in root
+- name: remove conf-enabled/nagios4-cgi.conf
+  ansible.builtin.file:
+    path: /etc/apache2/conf-enabled/nagios4-cgi.conf
+    state: absent
+  notify: restart apache2
+
+# I'm not sure if I will ever want to run this file on other than
+# dedicated site.
+- name: remove sites-enabled/000-default.conf
+  ansible.builtin.file:
+    path: /etc/apache2/sites-enabled/000-default.conf
+    state: absent
+  notify: restart apache2
+
+- name: upload nagios4 Apache config
+  template:
+    src: site.conf.j2
+    dest: /etc/apache2/sites-enabled/nagios4.conf
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+  notify: restart apache2
+
+- name: add semik user to password file
+  community.general.htpasswd:
+    path: /etc/apache2/passwdfile
+    name: "{{ item.name }}"
+    password: "{{ item.nagios_password }}"
+  with_items:
+    - "{{ nagios4_users }}"
+
+
+- name: debug
+  debug: msg="{{ nagios4_servers }}"
+  tags:
+    - nagios_cfg
+
+- name: debug
+  debug: msg="{{ nagios4_services }}"
+  tags:
+    - nagios_cfg
+
+- name: upload nagios4 cfgs
+  template:
+    src: "{{ item }}.j2"
+    dest: "/etc/nagios4/{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+  with_items:
+    - servers.cfg
+    - cgi.cfg
+    - nagios.cfg
+  tags:
+    - nagios_cfg
+  notify: restart nagios4
