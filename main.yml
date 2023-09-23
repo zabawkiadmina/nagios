@@ -14,14 +14,20 @@
         state: started
         enabled: True
 
-    - name: enable apache modules
+    - name: enable apache modules md
       community.general.apache2_module:
         state: present
         name: md
+    - name: enable apache modules ssl
+      community.general.apache2_module:
         state: present
         name: ssl
+    - name: enable apache modules cgi
+      community.general.apache2_module:
         state: present
         name: cgi
+    - name: enable apache modules headers
+      community.general.apache2_module:
         state: present
         name: headers
     - name: Restart apache2 server
