@@ -29,6 +29,9 @@
         name: apache2
         state: restarted
 
+#sudo usermod -a -G nagios www-data
+#sudo service apache2 restart
+#tematy.it@tematyka1:~/nagios$ sudo systemctl restart nagios4.service
 
 
 
