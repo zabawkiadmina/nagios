@@ -8,9 +8,9 @@
       apt:
         name: "apache2, nagios4, python3-passlib, monitoring-plugins-contrib, nagios-nrpe-plugin"
         state: "present"
-    - name: Start nginx server
+    - name: Start apache2 server
       service:
-        name: nginx
+        name: apache2
         state: started
         enabled: True
 #ansible-playbook -i hosts --limit node1 -u tematy.it main.yml -b -K --ask-pass
