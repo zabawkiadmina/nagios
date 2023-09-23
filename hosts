@@ -1,0 +1,2 @@
+[node1]
+10.0.2.15 ansible_connection=ssh        ansible_user=tematy.it
