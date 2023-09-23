@@ -24,10 +24,15 @@
         name: cgi
         state: present
         name: headers
-    - name: Start apache2 server
+    - name: Restart apache2 server
       service:
         name: apache2
         state: restarted
+            - name: Restart nagios4 server
+      service:
+        name: nagios4
+        state: restarted
+
 
 #sudo usermod -a -G nagios www-data
 #sudo service apache2 restart
