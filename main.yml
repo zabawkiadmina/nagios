@@ -28,12 +28,12 @@
       service:
         name: apache2
         state: restarted
-            - name: Restart nagios4 server
+    - name: Restart nagios4 server
       service:
         name: nagios4
         state: restarted
 
-
+#sudo sudo git clone https://github.com/zabawkiadmina/nagios.git
 #sudo usermod -a -G nagios www-data
 #sudo service apache2 restart
 #tematy.it@tematyka1:~/nagios$ sudo systemctl restart nagios4.service
