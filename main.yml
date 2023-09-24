@@ -50,17 +50,17 @@
         password: "{{ password }}"
         crypt_scheme: md5_crypt
 
-- name: upload nagios4 cfgs
-  template:
-    src: "{{ item }}.j2"
-    dest: "/etc/nagios4/{{ item }}"
-    owner: root
-    group: root
-    mode: 0644
-    backup: yes
-  with_items:
-    - apache2.conf
-  notify: restart nagios4
+    - name: upload nagios4 cfgs
+      template:
+       src: "{{ item }}.j2"
+       dest: "/etc/nagios4/{{ item }}"
+        owner: root
+        group: root
+        mode: 0644
+        backup: yes
+     with_items:
+      - apache2.conf
+    notify: restart nagios4
 
 
 
