@@ -48,7 +48,7 @@
         path: /etc/apache2/passwdfile
         name: "{{ username }}"
         password: "{{ password }}"
-        hash_scheme: md5_crypt
+        crypt_scheme: md5_crypt
 
 #          with_items:
 #          - "{{ nagios4_users }}"
