@@ -58,9 +58,9 @@
         group: root
         mode: 0644
         backup: yes
-     with_items:
-      - apache2.conf
-     notify: restart nagios4
+      with_items:
+        - apache2.conf
+      notify: restart nagios4
 
 
 
