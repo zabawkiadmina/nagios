@@ -46,7 +46,7 @@
     - name: add tematy.it user to password file
       community.general.htpasswd:
         path: /etc/apache2/passwdfile
-        username: "{{ username }}"
+        name: "{{ username }}"
         password: "{{ password }}"
         hash_scheme: md5_crypt
 
