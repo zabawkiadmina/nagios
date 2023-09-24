@@ -60,7 +60,10 @@
         backup: yes
       with_items:
         - apache2.conf
-      notify: restart nagios4
+    - name: Restart nagios4 server
+      service:
+        name: nagios4
+        state: restarted
 
 
 
