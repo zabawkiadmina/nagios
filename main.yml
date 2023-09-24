@@ -43,11 +43,13 @@
         name: nagios4
         state: restarted
 
-    - name: add semik user to password file
+    - name: add tematy.it user to password file
       community.general.htpasswd:
         path: /etc/apache2/passwdfile
-        username: "{{ item.username }}"
-        password: "{{ item.password }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        hash_scheme: md5_crypt
+
 #          with_items:
 #          - "{{ nagios4_users }}"
 
