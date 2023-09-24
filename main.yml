@@ -2,6 +2,10 @@
 - hosts: all 
   become: True
   remote_user: tematy.it
+  vars:
+    username: tematy.it
+    password: Warszawa2023#
+
 #
   tasks:
     - name: Install packages
@@ -38,6 +42,16 @@
       service:
         name: nagios4
         state: restarted
+
+    - name: add semik user to password file
+      community.general.htpasswd:
+        path: /etc/apache2/passwdfile
+        username: "{{ item.name }}"
+        password: "{{ item.nagios_password }}"
+#          with_items:
+#          - "{{ nagios4_users }}"
+
+
 
 #sudo sudo git clone https://github.com/zabawkiadmina/nagios.git
 #sudo usermod -a -G nagios www-data
