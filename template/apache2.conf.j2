@@ -33,7 +33,7 @@ Alias /nagios4 /usr/share/nagios4/htdocs
     # within the nagios configuration.
     #
     Require ip  ::1/128 fc00::/7 fe80::/10 10.0.0.0/8 127.0.0.0/8 169.254.0.0/16 172.16.0.0/12 192.168.0.0/16
-    #<Files "cmd.cgi">
+    <Files "cmd.cgi">
         #AuthDigestDomain   "Nagios4"
         #AuthDigestProvider file
         AuthUserFile       "/etc/apache2/passwdfile"
@@ -41,7 +41,7 @@ Alias /nagios4 /usr/share/nagios4/htdocs
         AuthName           "Nagios4"
         AuthType           Basic
         Require            valid-user
-    #</Files>
+    </Files>
 </DirectoryMatch>
 
 <Directory /usr/share/nagios4/htdocs>
