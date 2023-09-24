@@ -47,3 +47,11 @@ Alias /nagios4 /usr/share/nagios4/htdocs
 <Directory /usr/share/nagios4/htdocs>
     Options     +ExecCGI
 </Directory>
+
+<Directory /usr/share/nagios4/>
+Options ExecCGI
+        AuthUserFile       "/etc/apache2/passwdfile"
+        AuthName           "Nagios4"
+        AuthType           Basic
+        Require            valid-user
+</Directory>
