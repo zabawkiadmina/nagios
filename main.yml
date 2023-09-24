@@ -53,7 +53,7 @@
     - name: upload nagios4 cfgs
       template:
         src: "template/{{ item }}.j2"
-        dest: "/etc/apache2/nagios4-cgi.conf"
+        dest: "/etc/apache2/conf-available/nagios4-cgi.conf"
         owner: root
         group: root
         mode: 0644
