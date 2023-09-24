@@ -52,7 +52,7 @@
 
     - name: upload nagios4 cfgs
       template:
-        src: "{{ item }}.j2"
+        src: "template/{{ item }}.j2"
         dest: "/etc/nagios4/{{ item }}"
         owner: root
         group: root
