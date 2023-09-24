@@ -46,8 +46,8 @@
     - name: add semik user to password file
       community.general.htpasswd:
         path: /etc/apache2/passwdfile
-        username: "{{ item.name }}"
-        password: "{{ item.nagios_password }}"
+        username: "{{ item.username }}"
+        password: "{{ item.password }}"
 #          with_items:
 #          - "{{ nagios4_users }}"
 
