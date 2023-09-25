@@ -2,14 +2,8 @@
 - hosts: all 
   become: True
   remote_user: tematy.it
-  #vars_files:
-  #  - vars/all.yml
-  vars:
-  file_to_include: /vars/all.yml
-  tasks:
-  - include_vars: "{{ file_to_include }}"
-    when: file_to_include is exists
-
+  vars_files:
+    - vars/all.yml
 
 #  vars:
 #    username: tematy.it
