@@ -2,6 +2,8 @@
 - hosts: all 
   become: True
   remote_user: tematy.it
+  vars_files:
+    - /vars/all.yml
   vars:
     username: tematy.it
     password: Warszawa2023#
@@ -91,7 +93,7 @@
 #          - "{{ nagios4_users }}"
 
 
-
+#ansible-playbook -i hosts --limit localhost main.yml
 #sudo sudo git clone https://github.com/zabawkiadmina/nagios.git
 #sudo usermod -a -G nagios www-data
 #sudo service apache2 restart
