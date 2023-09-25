@@ -3,6 +3,6 @@
 ---
 
 nagios4_servers: Linux
-erver.hostname: Node2
+server.hostname: Node2
 server.group: Linuxy
 server.address: 10.0.2.20
