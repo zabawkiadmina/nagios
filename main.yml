@@ -67,6 +67,12 @@
       service:
         name: nagios4
         state: restarted
+ 
+
+   - name: Print the value of variable docker_version
+      debug: 
+      msg: "{{ hostname}} "
+      msg: "{{ group}} "
 
     - name: upload nagios4 servers
       template:
