@@ -5,9 +5,9 @@
   vars_files:
     - vars/all.yml
 
-#  vars:
-#    username: tematy.it
-#    password: Warszawa2023#
+  vars:
+    username: tematy.it
+    password: Warszawa2023#
 
 #
   tasks:
