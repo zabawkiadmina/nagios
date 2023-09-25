@@ -3,7 +3,7 @@
   become: True
   remote_user: tematy.it
   vars_files:
-    - vars/all.yml
+    - all.yml
 
   vars:
     username: tematy.it
@@ -70,7 +70,7 @@
 
     - name: include default step variables
       include_vars:
-        file: "/vars/all.yml"
+        file: "all.yml"
 
 
     - name: upload nagios4 servers
