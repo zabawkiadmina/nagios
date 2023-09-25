@@ -3,7 +3,7 @@
   become: True
   remote_user: tematy.it
   vars_files:
-    - all.yml
+    - /vars/all.yml
 
   vars:
     username: tematy.it
@@ -67,11 +67,6 @@
       service:
         name: nagios4
         state: restarted
-
-    #- name: include default step variables
-    #  include_vars:
-    #    file: "all.yml"
-
 
     - name: upload nagios4 servers
       template:
