@@ -1,6 +1,8 @@
+
+
+---
+
+nagios4_servers: Linux
 server.hostname: Node2
 server.group: Linuxy
 server.address: 10.0.2.20
-server: AAAA
-hostname: Node2
-address: 10.0.2.20
