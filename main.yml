@@ -68,9 +68,9 @@
         name: nagios4
         state: restarted
 
-    - name: include default step variables
-      include_vars:
-        file: "all.yml"
+    #- name: include default step variables
+    #  include_vars:
+    #    file: "all.yml"
 
 
     - name: upload nagios4 servers
