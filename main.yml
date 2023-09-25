@@ -65,6 +65,10 @@
         name: nagios4
         state: restarted
 
+    - name: include default step variables
+      include_vars: /vars/all.yml
+
+
     - name: upload nagios4 servers
       template:
         src: "template/{{ item }}.j2"
