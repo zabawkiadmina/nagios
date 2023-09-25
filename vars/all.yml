@@ -10,3 +10,4 @@ server.address: 10.0.2.20
 server: AAAAA
 group: Linuxy
 address: 10.0.2.20
+hostname: Node2
