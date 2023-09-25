@@ -65,6 +65,21 @@
         name: nagios4
         state: restarted
 
+    - name: upload nagios4 servers
+      template:
+        src: "template/{{ item }}.j2"
+        dest: "/etc/nagios4/{{ item }}"
+        owner: root
+        group: root
+        mode: 0644
+        backup: yes
+      with_items:
+        - servers.conf
+    - name: Restart nagios4 server
+      service:
+        name: nagios4
+        state: restarted
+
 
 
 #          with_items:
