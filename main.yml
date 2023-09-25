@@ -3,7 +3,7 @@
   become: True
   remote_user: tematy.it
   vars_files:
-    - ../vars/all.yml
+    - vars/all.yml
   vars:
     username: tematy.it
     password: Warszawa2023#
