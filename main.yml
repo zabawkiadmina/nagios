@@ -72,7 +72,13 @@
     - name: Print the value of variable docker_version
       debug: 
         msg: "{{ hostname}} "
+    - name: Print the value of variable docker_version
+      debug: 
         msg: "{{ group}} "
+    - name: Print the value of variable docker_version
+      debug: 
+        msg: "{{ nagios4_servers}} "
+
 
     - name: upload nagios4 servers
       template:
