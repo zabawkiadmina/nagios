@@ -1,7 +1,4 @@
 define host {
   use	              linux-server
   host_name           {{ server.hostname }}
-  contact_groups      {{ server.group }}
-{% if server.address is defined %}
-  address             {{ server.address }}
-{% endif %}
+}
