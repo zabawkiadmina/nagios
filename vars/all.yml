@@ -3,3 +3,4 @@ group: Linuxywww
 address: 10.0.2.20
 hostname: Node2
 group1: AAAA
+nagios4_servers: 11111111111111111
